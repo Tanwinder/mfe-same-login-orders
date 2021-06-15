@@ -41,7 +41,7 @@ const plugins = [
 if (process.env.NODE_ENV === "production") {
   mode = "production";
   // Temporary workaround for 'browserslist' bug that is being patched in the near future
-  target = "browserslist";
+  // target = "browserslist";
 }
 
 // if (process.env.SERVE) {
@@ -58,7 +58,8 @@ module.exports = {
   entry: "./src/index.js",
 
   output: {
-    publicPath: 'http://localhost:4002/'
+    publicPath: 'auto'
+    // publicPath: mode === "production" ? 'https://orders-app.netlify.app/' : 'http://localhost:4002/'
     // output path is required for `clean-webpack-plugin`
     // path: path.resolve(__dirname, "dist"),
     // this places all images processed in an image folder
