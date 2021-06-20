@@ -8,7 +8,10 @@ const  ModuleFederationPlugin  =  require("webpack/lib/container/ModuleFederatio
 const packageJson = require('./package.json');
 const deps = packageJson.dependencies;
 
-let mode = "development";   // development or production
+console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+
+const {NODE_ENV, SHOWROOM_URL } = process.env;
+let mode = NODE_ENV;   // development or production
 let target = "web";  // web or node
 const plugins = [
   new CleanWebpackPlugin(),
